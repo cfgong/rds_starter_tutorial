@@ -1,7 +1,10 @@
 # Code Base for AWS RDS connection tutorial [Link](https://medium.com/@crystalgong123/complete-guide-to-setting-up-connecting-to-and-using-an-amazon-rds-database-2e33c445baab)
 - This code allows you to connect to your AWS RDS postgreSQL database using DataGrip, through the command line, with Python, or through Databricks.
 - `queries.sql`: sql file to be used in DataGrip and Command Line
-    - modify `psql_login.sh` with appropriate database credentials (host, username, password, dbname)
+    - modify `psql_login.sh` bash script with appropriate database credentials (host, port, username, dbname)
+        - for example, replace `<port>` with port number so that `--port=<port>` looks like `--port=5432`
+        - login by running `./psql_login.sh` in terminal, when you get prompted for a password, enter your password
+            - you may have to modify permissions on the bash script by running `chmod +x psql_login.sh` to make file executable, more details about this [here](https://superuser.com/questions/82421/how-to-execute-a-bash-script)
     - pipe the queries into psql like so: `\i queries.sql`
         - more psql commands [here](https://www.postgresql.org/docs/9.2/app-psql.html)
 - `psycopg2.ipynb`: Jupyter Notebook walking through using Python with postgreSQL by leveraging the psycopg2 package
